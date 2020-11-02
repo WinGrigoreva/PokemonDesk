@@ -1,0 +1,13 @@
+.menu__list-item {
+  display: inline-block;
+  & + .menu__list-item {
+    padding-left: 60px;
+  }
+}
+.menu__list-link {
+  color: #000;
+  padding-bottom: 16px;
+  &:hover {
+    border-bottom: 3px solid #000;
+  }
+}

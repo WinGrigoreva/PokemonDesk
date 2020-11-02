@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  & * {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  & span {
+    color: red;
+  }
+}

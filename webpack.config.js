@@ -49,6 +49,21 @@ module.exports = {
           'sass-loader', // преобразует sass и css файлы в css
         ],
       },
+      // обработка статических файлов (шрифты, картинки,...)
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[ext]',
+        },
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[name].[ext]',
+        },
+      },
     ],
   },
   // плагины не преобразают файлы, только копируют исходные файлы в папку с конеными файлами:
