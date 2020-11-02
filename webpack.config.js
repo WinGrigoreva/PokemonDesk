@@ -8,7 +8,7 @@
      },
      //webpack по умолчанию собирает файлы в преобразованном (минимализимрованном) продакшен режиме
      mode: NODE_ENV ? NODE_ENV : 'development',//указываем собирать конечный файл в девелопмент режиме или продакшен режиме в зависимости от значения NODE_ENV в process.env
-     entry: path.resolve(__dirname, 'src/index.js'), //откуда брать файл - точку входа в приложение
+     entry: path.resolve(__dirname, 'src/index.tsx'), //откуда брать файл - точку входа в приложение
      // куда ложить конечный файл и как его назвать:
      output: {
          path: path.resolve(__dirname, 'dist'),
