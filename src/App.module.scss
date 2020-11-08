@@ -1,0 +1,35 @@
+.content {
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-top: 100px;
+}
+.find {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  align-items: center;
+  .find__image {
+    height: 450px;
+  }
+  .find__button {
+    background-color: #73d677;
+    color: #000000;
+    box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+    border-radius: 11px;
+    width: 230px;
+    height: 66px;
+    border: none;
+  }
+}
+.find__inner {
+  width: 500px;
+  .find__title {
+    font-size: 64px;
+  }
+  .find__text {
+    font-size: 32px;
+    line-height: 37px;
+  }
+}
