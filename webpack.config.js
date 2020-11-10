@@ -14,7 +14,11 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js',
   },
-
+  watch: true,
+  watchOptions: {
+    ignored: /node_modules/, // не просматривать файлы в папке
+    poll: 1000, // пробегаться по файлам для отслеживания изменений каждую мсекунду
+  },
   // в разделе описываются какими loaders обрабатывать исходные файлы (по умолчанию вебпак работает с js & json):
   module: {
     rules: [
@@ -50,19 +54,39 @@ module.exports = {
         ],
       },
       // обработка статических файлов (шрифты, картинки,...)
+      // {
+      //   test: /\.(png|jpg|jpeg|gif)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: 'images/[name].[ext]',
+      //   },
+      // },
+      // {
+      //   test: /\.(woff|woff2|eot|ttf|otf)$/,
+      //   loader: 'file-loader',
+      //   options: {
+      //     name: 'fonts/[name].[ext]',
+      //   },
+      // },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[ext]',
-        },
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/',
+            },
+          },
+        ],
       },
       {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'fonts/[name].[ext]',
-        },
+        test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+        use: ['url-loader'],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
       },
     ],
   },
@@ -77,6 +101,7 @@ module.exports = {
     port: 3000,
     open: true,
     hot: true,
+    historyApiFallback: true, // что бы роутинг работал корректно
   },
   // указываем необходимость создавать map-файл для связи исходного кода и конечного:
   devtool: 'source-map',

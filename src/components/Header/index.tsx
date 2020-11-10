@@ -1,21 +1,32 @@
 import React from 'react';
 import s from './Header.module.scss';
-import '../../images/Logo.svg';
 import MenuItem from '../MenuItem';
+import { ReactComponent as Logo } from './assets/Logo.svg';
+
+interface IMenu {
+  id: number;
+  text: string;
+  link: string;
+}
 
 const Header = () => {
-  const menuText = ['Home', 'Pokédex', 'Legendaries', 'Documentation'];
+  const menu: IMenu[] = [
+    { id: 1, text: 'Home', link: '/' },
+    { id: 2, text: 'Pokédex', link: '/pokedex' },
+    { id: 3, text: 'Legendaries', link: '/' },
+    { id: 4, text: 'Documentation', link: '/' },
+  ];
   return (
     <header className={s.header}>
       <div className="container">
         <div className={s.header__inner}>
           <a href="/" className={s.header__logo}>
-            <img src="../../images/Logo.svg" alt="" />
+            <Logo />
           </a>
           <nav>
             <ul>
-              {menuText.map((el) => {
-                return <MenuItem text={el} key={el} />;
+              {menu.map((el) => {
+                return <MenuItem text={el.text} link={el.link} key={el.id} />;
               })}
             </ul>
           </nav>

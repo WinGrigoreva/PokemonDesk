@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 html {
   box-sizing: border-box;
 }
@@ -11,9 +12,15 @@ a {
 }
 body {
   margin: 0;
+  padding: 0;
+  font-family: 'Karla', sans-serif;
 }
-.container {
-  max-width: 1130px;
-  padding: 0 15px;
-  margin: 0 auto;
+h1 {
+  font-weight: normal;
+}
+.small {
+  height: 16px;
+  font-size: 12px;
+  line-height: 14px;
+  box-shadow: inset 0px -2px 0px rgba(0, 0, 0, 0.18);
 }
