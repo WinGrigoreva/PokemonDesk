@@ -1,16 +1,11 @@
+import { useRoutes } from 'hookrouter';
 import React from 'react';
-// import s from './App.module.scss';
-import { BrowserRouter, Route } from 'react-router-dom';
-import HomePage from './pages/Home';
-import Pokedex from './pages/Pokedex';
+import NotFound from './pages/NotFound';
+import routes from './routes';
 
 const App = () => {
-  return (
-    <BrowserRouter>
-      <Route path="/" exact component={HomePage} />
-      <Route path="/pokedex" component={Pokedex} />
-    </BrowserRouter>
-  );
+  const match = useRoutes(routes);
+  return match || <NotFound />;
 };
 
 export default App;

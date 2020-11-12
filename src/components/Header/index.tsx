@@ -2,20 +2,22 @@ import React from 'react';
 import s from './Header.module.scss';
 import MenuItem from '../MenuItem';
 import { ReactComponent as Logo } from './assets/Logo.svg';
+import { GeneralMenu } from '../../routes';
 
-interface IMenu {
-  id: number;
-  text: string;
-  link: string;
-}
+// interface IMenu {
+//   id: number;
+//   text: string;
+//   link: string;
+// }
 
 const Header = () => {
-  const menu: IMenu[] = [
-    { id: 1, text: 'Home', link: '/' },
-    { id: 2, text: 'Pokédex', link: '/pokedex' },
-    { id: 3, text: 'Legendaries', link: '/' },
-    { id: 4, text: 'Documentation', link: '/' },
-  ];
+  //   const menu: IMenu[] = [
+  //     { id: 1, text: 'Home', link: '/' },
+  //     { id: 2, text: 'Pokédex', link: '/pokedex' },
+  //     { id: 3, text: 'Legendaries', link: '/legendaries' },
+  //     { id: 4, text: 'Documentation', link: '/documentation' },
+  //   ];
+
   return (
     <header className={s.header}>
       <div className="container">
@@ -25,8 +27,8 @@ const Header = () => {
           </a>
           <nav>
             <ul>
-              {menu.map((el) => {
-                return <MenuItem text={el.text} link={el.link} key={el.id} />;
+              {GeneralMenu.map(({ title, link }) => {
+                return <MenuItem text={title} link={link} key={title} />;
               })}
             </ul>
           </nav>

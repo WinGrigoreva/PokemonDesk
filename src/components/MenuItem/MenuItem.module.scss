@@ -9,9 +9,6 @@
   color: #000;
   padding-bottom: 16px;
   position: relative;
-  // &:hover {
-  //   border-bottom: 3px solid #000;
-  // }
   &::after {
     content: '';
     display: block;
@@ -27,7 +24,8 @@
     left: 50%;
     transform: translate(-50%, 0);
   }
-  &:hover {
+  &:hover,
+  &.activeLink {
     &::after {
       width: 100%;
       opacity: 1;

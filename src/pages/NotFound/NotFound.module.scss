@@ -1,0 +1,29 @@
+@import '../../variables.scss';
+
+.NotFound {
+  background-color: $danger;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.NotFoundText {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 48px;
+  line-height: 56px;
+  padding-bottom: 62px;
+  & > :first-child {
+    color: #f2f2f2;
+  }
+  & > :last-child {
+    color: #000000;
+  }
+}
+.NotFoundImage {
+  max-height: 672px;
+  max-width: 1277px;
+}
