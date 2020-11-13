@@ -7,11 +7,19 @@ interface IGeneralMenu {
   link: string;
   component: () => JSX.Element;
 }
+
+export enum LinkEnum {
+  HOME = '/',
+  POKEDEX = '/pokedex',
+  LEGENDARIES = '/legendaries',
+  DOCUMENTATION = '/documentation',
+}
+
 export const GeneralMenu: IGeneralMenu[] = [
-  { title: 'Home', link: '/', component: () => <HomePage /> },
-  { title: 'Pokédex', link: '/pokedex', component: () => <Pokedex title="Pokedex" /> },
-  { title: 'Legendaries', link: '/legendaries', component: () => <Pokedex title="Legendaries" /> },
-  { title: 'Documentation', link: '/documentation', component: () => <Pokedex title="Documentation" /> },
+  { title: 'Home', link: LinkEnum.HOME, component: () => <HomePage /> },
+  { title: 'Pokédex', link: LinkEnum.POKEDEX, component: () => <Pokedex title="Pokedex" /> },
+  { title: 'Legendaries', link: LinkEnum.LEGENDARIES, component: () => <Pokedex title="Legendaries" /> },
+  { title: 'Documentation', link: LinkEnum.DOCUMENTATION, component: () => <Pokedex title="Documentation" /> },
 ];
 
 interface IAccMenu {
