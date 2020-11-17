@@ -1,6 +1,7 @@
 import { navigate } from 'hookrouter';
 import React from 'react';
 import Button from '../../components/Button';
+import { LinkEnum } from '../../routes';
 import NotFoundImg from './assets/NotFound.png';
 import s from './NotFound.module.scss';
 
@@ -14,7 +15,7 @@ const NotFound = () => {
         <span>The rocket team</span>
         <span> has won this time.</span>
       </div>
-      <Button onClick={(event) => navigate('/')} color="#F2CB07">
+      <Button onClick={(event) => navigate(LinkEnum.HOME)} color="#F2CB07">
         Return
       </Button>
     </div>
