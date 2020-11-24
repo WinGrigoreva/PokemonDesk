@@ -1,8 +1,29 @@
-.root {
+.pokedex {
   max-width: 1277px;
   margin: 0 auto;
 }
-.pokedex {
+.pokedex__cards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+}
+.pokedex__SearcTitle {
+  font-size: 35px;
+  line-height: 41px;
+  text-align: center;
+  letter-spacing: 3px;
+}
+.pokedex__Search {
+  display: flex;
+}
+.pokedex__SearchInner {
+  width: 100%;
+  padding: 16px;
+  font-size: 16px;
+  line-height: 20px;
+  background: #f2f2f2;
+  box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+  border-radius: 40px;
+  border: none;
+  color: rgba($color: #212121, $alpha: 0.8);
 }

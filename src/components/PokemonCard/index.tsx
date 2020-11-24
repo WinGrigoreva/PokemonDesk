@@ -26,6 +26,9 @@ export interface IPokemonCardProps {
   weight?: number;
 }
 const PokemonCard: React.FC<IPokemonCardProps> = ({ stats, types, img, name }) => {
+  // const typePokemonColor = switch (types[0]){
+  //   case
+  // }
   return (
     <div className={s.root}>
       <div className={s.infoWrap}>
@@ -43,10 +46,12 @@ const PokemonCard: React.FC<IPokemonCardProps> = ({ stats, types, img, name }) =
           </div>
         </div>
         <div className={s.labelWrap}>
-          <span className={s.label}>{types.join(', ')}</span>
+          {types.map((el) => {
+            return <span className={s.label}>{el}</span>;
+          })}
         </div>
       </div>
-      <div className={s.pictureWrap}>
+      <div className={s.pictureWrap} style={{ background: 'yellow' }}>
         <img src={img} alt={name} />
       </div>
     </div>
