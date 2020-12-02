@@ -2,23 +2,33 @@ import React, { useState } from 'react';
 import Heading from '../../components/Heading';
 // import data from '../../Pokemons';
 import s from './Pokedex.module.scss';
-import PokemonCard, { IPokemonCardProps } from '../../components/PokemonCard';
+import PokemonCard from '../../components/PokemonCard';
 import useData from '../../hook/getData';
+import { IPokemonCardProps, IPokemons } from '../../interface/pokemons';
+import useDebounce from '../../hook/useDebounce';
 
 interface PokedexProps {
   title?: string;
 }
+interface IQuery {
+  name?: string;
+  limit?: number;
+}
 
 const Pokedex: React.FC<PokedexProps> = ({ title }) => {
   const [searchValue, setSearchValue] = useState('');
-  const [query, setQuery] = useState({});
+  const [query, setQuery] = useState<IQuery>({
+    limit: 12,
+  });
 
-  const { data, isLoading, isError } = useData('getPokemons', query, [searchValue]);
+  const debounceValue = useDebounce(searchValue, 500);
+
+  const { data, isLoading, isError } = useData<IPokemons>('getPokemons', query, [debounceValue]);
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearchValue(event.target.value);
-    setQuery((search) => ({
-      ...search,
+    setQuery((state: IQuery) => ({
+      ...state,
       name: event.target.value,
     }));
   };
